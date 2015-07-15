@@ -39,7 +39,7 @@ function maximize (query) {
   var h = parseInt(svg.style('height'), 10)
   var aspect = w / h
 
-  svg.attr('data-parent-id', svgParent.attr('id'))
+  svg.attr('data-container-query', query)
   svg.attr('data-position-style', svg.style('position'))
   if (!svg.attr('viewBox')) svg.attr('viewBox', '0 0 ' + w + ' ' + h)
 
@@ -64,10 +64,10 @@ function reparent (child, parent) {
 
 function closeFS () {
   var svg = d3.select('#full-screen-container svg')
-  var parentId = svg.attr('data-parent-id')
+  var query = svg.attr('data-maximize-query')
   var vb = svg.attr('viewBox').split(' ')
-  reparent(svg, d3.select('#' + parentId))
-  d3.select('#' + parentId + ' svg')
+  reparent(svg, d3.select(query))
+  d3.select(query + ' svg')
     .attr('width', vb[2])
     .attr('height', vb[3])
     .style('position', svg.attr('data-position-style'))
