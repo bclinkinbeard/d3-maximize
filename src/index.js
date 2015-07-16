@@ -22,7 +22,7 @@ function maximize (query) {
     .style('width', '100%')
     .style('height', '100%')
     .style('background-color', 'white')
-    .style('opacity', 0.8)
+    .style('opacity', 0.97)
     .style('pointer-events', 'none')
 
   var closeBtn = container
@@ -42,6 +42,7 @@ function maximize (query) {
   svg.attr('data-container-query', query)
   svg.attr('data-position-style', svg.style('position'))
   if (!svg.attr('viewBox')) svg.attr('viewBox', '0 0 ' + w + ' ' + h)
+  if (!svg.attr('preserveAspectRatio')) svg.attr('preserveAspectRatio', 'xMidYMid')
 
   // full screen CSS
   svg.style('position', 'absolute')
@@ -53,7 +54,7 @@ function maximize (query) {
 
   svg
     .attr('width', targetW)
-    .attr('height', Math.min(targetW / aspect, targetH))
+    .attr('height', targetH)
 }
 
 function reparent (child, parent) {
