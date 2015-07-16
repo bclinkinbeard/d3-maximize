@@ -1,6 +1,6 @@
 {
   "name": "d3-maximize",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Helper functions to enable maximizing D3 SVG charts",
   "main": "index.js",
   "scripts": {
