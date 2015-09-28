@@ -15,6 +15,7 @@ function maximize (query, config) {
     .style('left', 0)
     .style('width', '100%')
     .style('height', '100%')
+    .style('z-index', '1000')
 
   // create full screen overlay
   var overlay = container
